@@ -3,268 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Upgrade 2026 | Car Essentials</title>
     <meta name="p:domain_verify" content="2cc96acbb328c06fdadd05b2df21a20f"/>
+    <title>Auto Upgrade 2026 | Car Essentials</title>
     <style>
         :root {
             --primary: #2563eb;
             --dark: #1e293b;
-            --light: #f8fafc;
+            --light: #f1f5f9;
             --accent: #f59e0b;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             margin: 0;
-            background-color: var(--light);
+            background: linear-gradient(135deg, #e2e8f0 0%, #ffffff 100%);
+            background-attachment: fixed;
             color: var(--dark);
         }
 
         header {
-            background: white;
-            padding: 1rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1.5rem;
+            text-align: center;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-
-        .menu-btn {
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: var(--dark);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
 
         .logo {
-            font-weight: bold;
-            font-size: 1.4rem;
+            font-weight: 800;
+            font-size: 1.8rem;
             color: var(--primary);
-            text-align: center;
-            flex-grow: 1;
+            letter-spacing: -1px;
         }
-
-        .search-container {
-            padding: 1.5rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 12px 25px;
-            border: 1px solid #ddd;
-            border-radius: 30px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 200;
-            top: 0;
-            left: 0;
-            background-color: var(--dark);
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-        }
-
-        .sidebar a {
-            padding: 15px 32px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidebar a:hover { color: white; background: #334155; }
-        .sidebar .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            padding: 0 2rem 4rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 3rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .product-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 24px;
             overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+            flex-grow: 1;
             display: flex;
             flex-direction: column;
             text-align: center;
         }
 
-        .product-card:hover { transform: translateY(-5px); }
-
-        .product-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            min-height: 2.5rem;
         }
-
-        .product-info { padding: 1.5rem; flex-grow: 1; }
-        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
 
         .amazon-btn {
             display: block;
             background: var(--accent);
             color: white;
             text-align: center;
-            padding: 12px;
-            border-radius: 12px;
+            padding: 14px;
+            border-radius: 14px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
+            margin-top: auto;
+            transition: opacity 0.2s;
         }
 
-        .section-content { padding: 2rem; max-width: 1000px; margin: 0 auto; display: none; }
-        .active { display: block; }
+        .amazon-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content h2 { margin-bottom: 1rem; }
+        .footer-content p { color: #64748b; line-height: 1.6; }
+        .contact-link { color: var(--primary); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
-<div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#" onclick="showPage('home')">Startseite</a>
-    <a href="#" onclick="showPage('about')">Über uns</a>
-    <a href="#" onclick="showPage('services')">Dienstleistungen</a>
-    <a href="#" onclick="showPage('contact')">Kontakt / Impressum</a>
-</div>
-
 <header>
-    <button class="menu-btn" onclick="openNav()">&#9776;</button>
     <div class="logo">Auto Upgrade 2026</div>
-    <div style="width: 24px;"></div>
 </header>
 
-<div id="home" class="section-content active">
-    <div class="search-container">
-        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Gadgets durchsuchen...">
+<div class="product-grid">
+    <div class="product-card">
+        <img src="bild1.jpg" alt="Dashcam">
+        <div class="product-info">
+            <div class="product-title">4K Dashcam Nachtsicht</div>
+            <a href="https://amzn.to/3Y26z6A" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
+        </div>
     </div>
 
-    <div class="product-grid" id="productGrid">
-        <div class="product-card">
-            <img src="bild1.jpg" alt="Dashcam">
-            <div class="product-info">
-                <div class="product-title">4K Dashcam Nachtsicht</div>
-                <a href="https://amzn.to/3Y26z6A" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild2.jpg" alt="Staubsauger">
+        <div class="product-info">
+            <div class="product-title">Akku Autostaubsauger</div>
+            <a href="https://amzn.to/4f1l1Z6" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild2.jpg" alt="Staubsauger">
-            <div class="product-info">
-                <div class="product-title">Akku Autostaubsauger</div>
-                <a href="https://amzn.to/4f1l1Z6" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild3.jpg" alt="Organizer">
+        <div class="product-info">
+            <div class="product-title">Rücksitz Organizer</div>
+            <a href="https://amzn.to/3Y26B6E" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild3.jpg" alt="Organizer">
-            <div class="product-info">
-                <div class="product-title">Rücksitz Organizer</div>
-                <a href="https://amzn.to/3Y26B6E" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild4.jpg" alt="Reifendruck">
+        <div class="product-info">
+            <div class="product-title">Digitaler Reifendruckmesser</div>
+            <a href="https://amzn.to/3Y3Bf9g" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild4.jpg" alt="Reifendruck">
-            <div class="product-info">
-                <div class="product-title">Digitaler Reifendruckmesser</div>
-                <a href="https://amzn.to/3Y3Bf9g" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild5.jpg" alt="LED">
+        <div class="product-info">
+            <div class="product-title">LED Innenraumbeleuchtung</div>
+            <a href="https://amzn.to/3Y6Nf8h" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild5.jpg" alt="LED">
-            <div class="product-info">
-                <div class="product-title">LED Innenraumbeleuchtung</div>
-                <a href="https://amzn.to/3Y6Nf8h" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild6.jpg" alt="Starthilfe">
+        <div class="product-info">
+            <div class="product-title">Auto Starthilfe Powerbank</div>
+            <a href="https://amzn.to/4f3M8Xk" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild6.jpg" alt="Starthilfe">
-            <div class="product-info">
-                <div class="product-title">Auto Starthilfe Powerbank</div>
-                <a href="https://amzn.to/4f3M8Xk" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild7.jpg" alt="Halterung">
+        <div class="product-info">
+            <div class="product-title">Magnet Handyhalterung</div>
+            <a href="https://amzn.to/3Y1Z7Nf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild7.jpg" alt="Halterung">
-            <div class="product-info">
-                <div class="product-title">Magnet Handyhalterung</div>
-                <a href="https://amzn.to/3Y1Z7Nf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild8.jpg" alt="Keramik">
+        <div class="product-info">
+            <div class="product-title">Keramik Versiegelung Set</div>
+            <a href="https://amzn.to/3Y5P9rB" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
+    </div>
 
-        <div class="product-card">
-            <img src="bild8.jpg" alt="Keramik">
-            <div class="product-info">
-                <div class="product-title">Keramik Versiegelung Set</div>
-                <a href="https://amzn.to/3Y5P9rB" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
-        </div>
-
-        <div class="product-card">
-            <img src="bild9.jpg" alt="Duft">
-            <div class="product-info">
-                <div class="product-title">Premium Lufterfrischer</div>
-                <a href="https://amzn.to/3Y4L9Zf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
-            </div>
+    <div class="product-card">
+        <img src="bild9.jpg" alt="Duft">
+        <div class="product-info">
+            <div class="product-title">Premium Lufterfrischer</div>
+            <a href="https://amzn.to/3Y4L9Zf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
         </div>
     </div>
 </div>
 
-<div id="about" class="section-content">
-    <h1>Über uns</h1>
-    <p>Wir bei Auto Upgrade 2026 suchen für dich die besten Gadgets aus, damit dein Fahrerlebnis moderner und sicherer wird.</p>
-</div>
+<footer>
+    <div class="footer-content">
+        <h2>Kontakt & Impressum</h2>
+        <p>Betreiber: Leonit<br>
+        E-Mail: <a href="mailto:leonit.behrami21@gmail.com" class="contact-link">leonit.behrami21@gmail.com</a></p>
+        <p>Hinweis: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
+    </div>
+</footer>
 
-<div id="services" class="section-content">
-    <h1>Dienstleistungen</h1>
-    <p>Kuratierte Listen für Auto-Zubehör und Beratung zu den neuesten Trends 2026.</p>
-</div>
-
-<div id="contact" class="section-content">
-    <h1>Kontakt & Impressum</h1>
-    <p>Betreiber: Leonit<br>
-    E-Mail: leonit@autoupgrade.com<br><br>
-    Hinweis: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
-</div>
-
-<script>
-function openNav() { document.getElementById("mySidebar").style.width = "250px"; }
-function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
-function showPage(pageId) {
-    const pages = document.getElementsByClassName('section-content');
-    for (let page of pages) { page.classList.remove('active'); }
-    document.getElementById(pageId).classList.add('active');
-    closeNav();
-    window.scrollTo(0,0);
-}
-function filterProducts() {
-    let input = document.getElementById('searchInput').value.toLowerCase();
-    let cards = document.getElementsByClassName('product-card');
-    for (let card of cards) {
-        let title = card.querySelector('.product-title').innerText.toLowerCase();
-        card.style.display = title.includes(input) ? "" : "none";
-    }
-}
-</script>
 </body>
 </html>
