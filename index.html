@@ -427,10 +427,13 @@
         let visibleCount = 0;
         
         for (let i = 0; i < cards.length; i++) {
-            let title = cards[i].querySelector('.p-title').innerText.toLowerCase();
-            let synonyms = cards[i].getAttribute('data-synonyms').toLowerCase();
+            let titleElement = cards[i].querySelector('.p-title');
+            let title = titleElement ? titleElement.innerText.toLowerCase() : "";
             
-            // Sucht im Titel UND in den versteckten Synonymen
+            // Die Absturzsicherung für die Synonyme:
+            let synonymsAttr = cards[i].getAttribute('data-synonyms');
+            let synonyms = synonymsAttr ? synonymsAttr.toLowerCase() : "";
+            
             if (title.includes(input) || synonyms.includes(input)) {
                 cards[i].style.display = "";
                 visibleCount++;
@@ -439,7 +442,6 @@
             }
         }
 
-        // Steuert das Verstecken von Kategorien, wenn sie leer sind
         let sectionTitles = document.getElementsByClassName('section-title');
         let grids = document.getElementsByClassName('grid');
 
@@ -454,22 +456,22 @@
                 }
             }
 
-            // Verstecke Titel und Grid, falls keine Karten sichtbar sind
             if (hasVisibleCards) {
-                sectionTitles[i].style.display = "";
-                grids[i].style.display = "grid"; 
+                if(sectionTitles[i]) sectionTitles[i].style.display = "";
+                if(grids[i]) grids[i].style.display = "grid"; 
             } else {
-                sectionTitles[i].style.display = "none";
-                grids[i].style.display = "none";
+                if(sectionTitles[i]) sectionTitles[i].style.display = "none";
+                if(grids[i]) grids[i].style.display = "none";
             }
         }
 
-        // Steuert die "Keine Treffer" Meldung
         let noResults = document.getElementById('no-results');
-        if (visibleCount === 0) {
-            noResults.style.display = "block";
-        } else {
-            noResults.style.display = "none";
+        if (noResults) {
+            if (visibleCount === 0) {
+                noResults.style.display = "block";
+            } else {
+                noResults.style.display = "none";
+            }
         }
     }
 </script>
