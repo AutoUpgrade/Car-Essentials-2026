@@ -25,14 +25,37 @@
             line-height: 1.6;
         }
 
+        /* NEU: Grid-Layout für die obere Leiste, damit die Suche perfekt in der Mitte sitzt */
         .brand-bar {
             background-color: var(--brand-bg);
             color: white;
             padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
+
+        .brand-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* NEU: Hamburger Menü Button */
+        .menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 26px;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.3s;
+        }
+
+        .menu-btn:hover { color: var(--blue); }
 
         .brand-logo-base {
             display: flex;
@@ -40,11 +63,8 @@
             gap: 12px;
         }
 
-        .brand-icon-svg {
-            height: 20px;
-            fill: white;
-        }
-
+        .brand-icon-svg { height: 20px; fill: white; }
+        
         .brand-name {
             font-size: 20px;
             font-weight: 900;
@@ -53,6 +73,80 @@
             margin: 0;
         }
 
+        /* NEU: Suchleiste Design */
+        .search-wrapper { display: flex; justify-content: center; }
+        
+        #searchInput {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 30px;
+            outline: none;
+            width: 250px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        #searchInput::placeholder { color: rgba(255, 255, 255, 0.6); }
+        #searchInput:focus { 
+            background: rgba(255, 255, 255, 0.25); 
+            border-color: var(--blue); 
+            width: 300px; 
+        }
+
+        .brand-right {
+            text-align: right;
+            font-size: 11px; 
+            opacity: 0.7; 
+            letter-spacing: 1px; 
+            font-weight: 600;
+        }
+
+        /* NEU: Seitenleiste (Sidebar) */
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            background-color: var(--brand-bg);
+            overflow-x: hidden;
+            transition: 0.4s;
+            padding-top: 80px;
+            box-shadow: 5px 0 15px rgba(0,0,0,0.5);
+        }
+
+        .sidebar a {
+            padding: 15px 35px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: #cbd5e1;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover { color: white; background: rgba(255,255,255,0.1); }
+        .sidebar .closebtn { position: absolute; top: 15px; right: 25px; font-size: 36px; }
+
+        /* Seiten-Umschaltung */
+        .page-section { display: none; }
+        .page-section.active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .content-page {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
+        }
+
+        /* DEIN ORIGINAL DESIGN AB HIER */
         .header {
             background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1500');
@@ -77,15 +171,8 @@
             padding: 0 20px;
         }
 
-        .section-title {
-            text-align: center;
-            margin: 80px 0 40px;
-        }
-
-        .section-title h2 {
-            font-size: 32px;
-            font-weight: 800;
-        }
+        .section-title { text-align: center; margin: 80px 0 40px; }
+        .section-title h2 { font-size: 32px; font-weight: 800; }
 
         .grid {
             display: grid;
@@ -148,117 +235,202 @@
             font-weight: 800;
             font-size: 14px;
             box-shadow: 0 8px 15px rgba(255, 153, 0, 0.2);
+            transition: transform 0.2s;
         }
+
+        .amazon-btn:hover { transform: scale(1.02); }
 
         footer {
             background: #f8fafc;
             text-align: center;
             padding: 60px 20px;
-            font-size: 12px;
+            font-size: 13px;
             color: #64748b;
             border-top: 1px solid #e2e8f0;
+        }
+
+        /* Mobile Anpassung */
+        @media (max-width: 768px) {
+            .brand-bar { grid-template-columns: 1fr; gap: 15px; }
+            .brand-right { display: none; } /* Versteckt den Text rechts auf dem Handy für mehr Platz */
+            #searchInput { width: 100%; }
+            #searchInput:focus { width: 100%; }
         }
     </style>
 </head>
 <body>
 
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#" onclick="showPage('home')">🏠 Startseite</a>
+    <a href="#" onclick="showPage('about')">ℹ️ Über uns</a>
+    <a href="#" onclick="showPage('privacy')">🔒 Datenschutz</a>
+    <a href="#footer" onclick="closeNav()">✉️ Kontakt</a>
+</div>
+
 <div class="brand-bar">
-    <div class="brand-logo-base">
-        <svg class="brand-icon-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
-            <path d="M100 120C150 120 180 90 250 90C320 90 350 120 400 120H450C480 120 500 100 500 70V50C500 20 480 0 450 0H50C20 0 0 20 0 50V70C0 100 20 120 50 120H100Z"/>
-        </svg>
-        <h2 class="brand-name">AUTO UPGRADE</h2>
+    <div class="brand-left">
+        <button class="menu-btn" onclick="openNav()">&#9776;</button>
+        <div class="brand-logo-base" style="cursor:pointer;" onclick="showPage('home')">
+            <svg class="brand-icon-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+                <path d="M100 120C150 120 180 90 250 90C320 90 350 120 400 120H450C480 120 500 100 500 70V50C500 20 480 0 450 0H50C20 0 0 20 0 50V70C0 100 20 120 50 120H100Z"/>
+            </svg>
+            <h2 class="brand-name">AUTO UPGRADE</h2>
+        </div>
     </div>
-    <div style="font-size: 11px; opacity: 0.7; letter-spacing: 1px; font-weight: 600;">PREMIUM ESSENTIALS 2026</div>
+    
+    <div class="search-wrapper">
+        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Gadgets suchen...">
+    </div>
+
+    <div class="brand-right">PREMIUM ESSENTIALS 2026</div>
 </div>
 
-<div class="header">
-    <h1>Car Essentials 2026</h1>
+<div id="home" class="page-section active">
+    <div class="header">
+        <h1>Car Essentials 2026</h1>
+    </div>
+
+    <div class="container">
+        <div class="section-title"><h2>🛡️ Sicherheit & Technik</h2></div>
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild1.jpg" alt="Dashcam"></div>
+                <div class="product-content">
+                    <h3 class="p-title">GKU 4K Dashcam</h3>
+                    <a href="https://amzn.to/4vsaWcO" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild2.jpg" alt="Display"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Smart Display</h3>
+                    <a href="https://amzn.to/3PQaFju" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild3.jpg" alt="OBD2"></div>
+                <div class="product-content">
+                    <h3 class="p-title">OBD2 Diagnose</h3>
+                    <a href="https://amzn.to/4c2qfBn" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>🧼 Glanz & Profi-Pflege</h2></div>
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild4.jpg" alt="Sonax"></div>
+                <div class="product-content">
+                    <h3 class="p-title">SONAX Ceramic</h3>
+                    <a href="https://amzn.to/3QkS532" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild5.jpg" alt="Sauger"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Akku-Turbo Sauger</h3>
+                    <a href="https://amzn.to/4dZqQF6" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild6.jpg" alt="Gel"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Detailing Gel</h3>
+                    <a href="https://amzn.to/4trnOhj" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>🔋 Power & Notfall-Hilfe</h2></div>
+        <div class="grid">
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild7.jpg" alt="Powerbank"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Starthilfe Powerbank</h3>
+                    <a href="https://amzn.to/4tyfcWo" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild8.jpg" alt="Kompressor"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Akku-Kompressor</h3>
+                    <a href="https://amzn.to/4tuothV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img-box"><img src="bild9.jpg" alt="Notlicht"></div>
+                <div class="product-content">
+                    <h3 class="p-title">LED Notfalllicht</h3>
+                    <a href="https://amzn.to/41gqtyp" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="container">
-
-    <div class="section-title"><h2>🛡️ Sicherheit & Technik</h2></div>
-    <div class="grid">
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild1.jpg" alt="Dashcam"></div>
-            <div class="product-content">
-                <h3>GKU 4K Dashcam</h3>
-                <a href="https://amzn.to/4vsaWcO" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild2.jpg" alt="Display"></div>
-            <div class="product-content">
-                <h3>Smart Display</h3>
-                <a href="https://amzn.to/3PQaFju" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild3.jpg" alt="OBD2"></div>
-            <div class="product-content">
-                <h3>OBD2 Diagnose</h3>
-                <a href="https://amzn.to/4c2qfBn" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
+<div id="about" class="page-section">
+    <div class="content-page">
+        <h2 style="font-size: 32px; font-weight: 800; margin-top: 0;">Über Auto Upgrade 2026</h2>
+        <p>Willkommen bei <strong>Auto Upgrade 2026</strong>. Wir haben es uns zur Aufgabe gemacht, den unübersichtlichen Markt für Autozubehör zu filtern.</p>
+        <p>Hier findest du keine endlosen Listen, sondern nur handverlesene Premium-Gadgets, die dein Auto wirklich moderner, sicherer und komfortabler machen.</p>
     </div>
-
-    <div class="section-title"><h2>🧼 Glanz & Profi-Pflege</h2></div>
-    <div class="grid">
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild4.jpg" alt="Sonax"></div>
-            <div class="product-content">
-                <h3>SONAX Ceramic</h3>
-                <a href="https://amzn.to/3QkS532" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild5.jpg" alt="Sauger"></div>
-            <div class="product-content">
-                <h3>Akku-Turbo Sauger</h3>
-                <a href="https://amzn.to/4dZqQF6" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild6.jpg" alt="Gel"></div>
-            <div class="product-content">
-                <h3>Detailing Gel</h3>
-                <a href="https://amzn.to/4trnOhj" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-title"><h2>🔋 Power & Notfall-Hilfe</h2></div>
-    <div class="grid">
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild7.jpg" alt="Powerbank"></div>
-            <div class="product-content">
-                <h3>Starthilfe Powerbank</h3>
-                <a href="https://amzn.to/4tyfcWo" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild8.jpg" alt="Kompressor"></div>
-            <div class="product-content">
-                <h3>Akku-Kompressor</h3>
-                <a href="https://amzn.to/4tuothV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-img-box"><img src="bild9.jpg" alt="Notlicht"></div>
-            <div class="product-content">
-                <h3>LED Notfalllicht</h3>
-                <a href="https://amzn.to/41gqtyp" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
-            </div>
-        </div>
-    </div>
-
 </div>
 
-<footer>
-    <p><strong>Impressum:</strong> Leonit Behrami | Obermarkstraße | 56330 Kobern-Gondorf | <a href="mailto:leonit.behrami21@gmail.com">leonit.behrami21@gmail.com</a></p>
+<div id="privacy" class="page-section">
+    <div class="content-page">
+        <h2 style="font-size: 32px; font-weight: 800; margin-top: 0;">Datenschutz & Transparenz</h2>
+        <p>Der Schutz deiner Daten ist uns wichtig. Diese Webseite nutzt Affiliate-Links. Wenn du auf einen Produktlink (z.B. zu Amazon) klickst, wird ein Cookie gesetzt, damit der Shop weiß, dass du von uns kommst.</p>
+        <p>Für dich ändert sich der Preis dadurch nicht, aber du unterstützt dieses Projekt. Wir speichern selbst keine persönlichen Daten von unseren Besuchern.</p>
+    </div>
+</div>
+
+<footer id="footer">
+    <p><strong>Impressum:</strong> Leonit Behrami | Obermarkstraße | 56330 Kobern-Gondorf | <a href="mailto:leonit.behrami21@gmail.com" style="color:#64748b;">leonit.behrami21@gmail.com</a></p>
     <p>* Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
 </footer>
+
+<script>
+    function openNav() {
+        document.getElementById("mySidebar").style.width = "280px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+    }
+
+    function showPage(pageId) {
+        // Blendet alle Seiten aus
+        let pages = document.getElementsByClassName("page-section");
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].classList.remove("active");
+        }
+        // Blendet die geklickte Seite ein
+        document.getElementById(pageId).classList.add("active");
+        closeNav();
+        window.scrollTo(0, 0); // Scrollt nach oben
+    }
+
+    function filterProducts() {
+        // Falls jemand sucht, während er auf "Über uns" ist, springt die Seite zu den Produkten zurück
+        if(!document.getElementById('home').classList.contains('active')) {
+            showPage('home');
+        }
+
+        let input = document.getElementById('searchInput').value.toLowerCase();
+        let cards = document.getElementsByClassName('product-card');
+        
+        for (let i = 0; i < cards.length; i++) {
+            // Sucht im Titel der Karte (h3)
+            let title = cards[i].querySelector('.p-title').innerText.toLowerCase();
+            if (title.includes(input)) {
+                cards[i].style.display = "";
+            } else {
+                cards[i].style.display = "none";
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
