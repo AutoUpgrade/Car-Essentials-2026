@@ -37,42 +37,13 @@
             z-index: 1000;
         }
 
-        .brand-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .menu-btn {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 26px;
-            cursor: pointer;
-            padding: 0;
-            transition: color 0.3s;
-        }
-
-        .menu-btn:hover { color: var(--blue); }
-
-        .brand-logo-base {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
+        .brand-left { display: flex; align-items: center; gap: 20px; }
+        .menu-btn { background: none; border: none; color: white; font-size: 26px; cursor: pointer; padding: 0; }
+        .brand-logo-base { display: flex; align-items: center; gap: 12px; }
         .brand-icon-svg { height: 20px; fill: white; }
-        
-        .brand-name {
-            font-size: 20px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin: 0;
-        }
+        .brand-name { font-size: 20px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; margin: 0; }
 
         .search-wrapper { display: flex; justify-content: center; }
-        
         #searchInput {
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -86,44 +57,16 @@
         }
         
         #searchInput::placeholder { color: rgba(255, 255, 255, 0.6); }
-        #searchInput:focus { 
-            background: rgba(255, 255, 255, 0.25); 
-            border-color: var(--blue); 
-            width: 300px; 
-        }
+        #searchInput:focus { background: rgba(255, 255, 255, 0.25); border-color: var(--blue); width: 300px; }
 
-        .brand-right {
-            text-align: right;
-            font-size: 11px; 
-            opacity: 0.7; 
-            letter-spacing: 1px; 
-            font-weight: 600;
-        }
+        .brand-right { text-align: right; font-size: 11px; opacity: 0.7; letter-spacing: 1px; font-weight: 600; }
 
         .sidebar {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            left: 0;
-            background-color: var(--brand-bg);
-            overflow-x: hidden;
-            transition: 0.4s;
-            padding-top: 80px;
+            height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0;
+            background-color: var(--brand-bg); overflow-x: hidden; transition: 0.4s; padding-top: 80px;
             box-shadow: 5px 0 15px rgba(0,0,0,0.5);
         }
-
-        .sidebar a {
-            padding: 15px 35px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 600;
-            color: #cbd5e1;
-            display: block;
-            transition: 0.3s;
-        }
-
+        .sidebar a { padding: 15px 35px; text-decoration: none; font-size: 18px; font-weight: 600; color: #cbd5e1; display: block; }
         .sidebar a:hover { color: white; background: rgba(255,255,255,0.1); }
         .sidebar .closebtn { position: absolute; top: 15px; right: 25px; font-size: 36px; }
 
@@ -132,130 +75,46 @@
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .content-page {
-            max-width: 800px;
-            margin: 60px auto;
-            padding: 40px;
-            background: white;
-            border-radius: 30px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            border: 1px solid #f1f5f9;
+            max-width: 800px; margin: 60px auto; padding: 40px;
+            background: white; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid #f1f5f9;
         }
 
         .header {
             background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1500');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 100px 20px;
-            text-align: center;
+            background-size: cover; background-position: center; color: white; padding: 100px 20px; text-align: center;
             clip-path: ellipse(150% 100% at 50% 0%);
         }
+        .header h1 { font-size: 42px; font-weight: 900; margin: 0; text-transform: uppercase; }
 
-        .header h1 {
-            font-size: 42px;
-            font-weight: 900;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: -60px auto 60px auto;
-            padding: 0 20px;
-        }
-
+        .container { max-width: 1100px; margin: -60px auto 60px auto; padding: 0 20px; }
         .section-title { text-align: center; margin: 80px 0 40px; }
         .section-title h2 { font-size: 32px; font-weight: 800; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .product-card {
-            background: white;
-            border-radius: 30px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            transition: all 0.4s ease;
-            border: 1px solid #f1f5f9;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            background: white; border-radius: 30px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            transition: all 0.4s ease; border: 1px solid #f1f5f9; display: flex; flex-direction: column;
         }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-        }
-
-        .product-img-box {
-            height: 220px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .product-img-box img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-            border-radius: 15px;
-        }
-
-        .product-content {
-            padding: 0 25px 35px;
-            flex-grow: 1;
-            text-align: center;
-        }
-
-        .product-content h3 {
-            font-size: 22px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
+        .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .product-img-box { height: 220px; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .product-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 15px; }
+        .product-content { padding: 0 25px 35px; flex-grow: 1; text-align: center; }
+        .product-content h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; }
 
         .amazon-btn {
-            display: block;
-            background: linear-gradient(135deg, #ff9900, #ffb347);
-            color: black;
-            text-decoration: none;
-            text-align: center;
-            padding: 18px;
-            border-radius: 20px;
-            font-weight: 800;
-            font-size: 14px;
-            box-shadow: 0 8px 15px rgba(255, 153, 0, 0.2);
-            transition: transform 0.2s;
+            display: block; background: linear-gradient(135deg, #ff9900, #ffb347); color: black;
+            text-decoration: none; text-align: center; padding: 18px; border-radius: 20px;
+            font-weight: 800; font-size: 14px; box-shadow: 0 8px 15px rgba(255, 153, 0, 0.2);
         }
 
-        .amazon-btn:hover { transform: scale(1.02); }
-
-        footer {
-            background: #f8fafc;
-            text-align: center;
-            padding: 60px 20px;
-            font-size: 13px;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-        }
-
-        #no-results {
-            display: none;
-            text-align: center;
-            padding: 80px 20px;
-        }
-        #no-results h2 { font-size: 28px; color: var(--dark); font-weight: 800; }
-        #no-results p { color: #64748b; font-size: 16px; margin-top: 10px; }
+        footer { background: #f8fafc; text-align: center; padding: 60px 20px; font-size: 13px; color: #64748b; border-top: 1px solid #e2e8f0; }
+        #no-results { display: none; text-align: center; padding: 80px 20px; }
 
         @media (max-width: 768px) {
             .brand-bar { grid-template-columns: 1fr; gap: 15px; }
             .brand-right { display: none; } 
             #searchInput { width: 100%; }
-            #searchInput:focus { width: 100%; }
         }
     </style>
 </head>
@@ -279,61 +138,45 @@
             <h2 class="brand-name">AUTO UPGRADE</h2>
         </div>
     </div>
-    
-    <div class="search-wrapper">
-        <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Gadgets suchen...">
-    </div>
-
+    <div class="search-wrapper"><input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Gadgets suchen..."></div>
     <div class="brand-right">PREMIUM ESSENTIALS 2026</div>
 </div>
 
 <div id="home" class="page-section active">
-    <div class="header">
-        <h1>Car Essentials 2026</h1>
-    </div>
-
+    <div class="header"><h1>Car Essentials 2026</h1></div>
     <div class="container">
-        
-        <div id="no-results">
-            <h2>Keine Treffer gefunden 😕</h2>
-            <p>Versuch es mal mit Begriffen wie "Kamera", "Reinigung" oder "Batterie".</p>
-        </div>
+        <div id="no-results"><h2>Keine Treffer gefunden 😕</h2><p>Versuch es mal mit Begriffen wie "Kamera", "Reinigung" oder "Batterie".</p></div>
 
         <div class="section-title"><h2>☀️ Sommer & Glanz-Specials</h2></div>
         <div class="grid">
             <div class="product-card" data-synonyms="sonne hitze kühlen schirm urlaub sommer">
-                <div class="product-img-box"><img src="bild10.jpg" alt="Sonnenschutz Schirm"></div>
+                <div class="product-img-box"><img src="bild10.jpg" alt="Felgenreiniger Sonax"></div>
                 <div class="product-content">
-                    <h3 class="p-title">Premium Sonnenschutz-Schirm</h3>
-                    <a href="https://amzn.to/4mexERb" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                    <h3 class="p-title">High-End Felgenreiniger</h3> <a href="https://amzn.to/4mexERb" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
             <div class="product-card" data-synonyms="reinigung insekten fliegen waschen schmutz">
-                <div class="product-img-box"><img src="bild11.jpg" alt="Insektenentferner"></div>
+                <div class="product-img-box"><img src="bild11.jpg" alt="XL Mikrofaser Trockentuch"></div>
                 <div class="product-content">
-                    <h3 class="p-title">Insekten-Entferner Spezial</h3>
-                    <a href="https://amzn.to/4vdX6ud" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                    <h3 class="p-title">XL-Mikrofaser Trockentuch</h3> <a href="https://amzn.to/4vdX6ud" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
             <div class="product-card" data-synonyms="felgen dreck waschen reifen lila indikator">
-                <div class="product-img-box"><img src="bild12.jpg" alt="Felgenreiniger"></div>
+                <div class="product-img-box"><img src="bild12.jpg" alt="Insektenentferner Nigrin"></div>
                 <div class="product-content">
-                    <h3 class="p-title">High-End Felgenreiniger</h3>
-                    <a href="https://amzn.to/3POCAQV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                    <h3 class="p-title">Insektenentferner Gel</h3> <a href="https://amzn.to/3POCAQV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
             <div class="product-card" data-synonyms="tuch trocknen saugen mikrofaser xxl wasserflecken">
-                <div class="product-img-box"><img src="bild13.jpg" alt="Trockentuch"></div>
+                <div class="product-img-box"><img src="bild13.jpg" alt="Auto Sonnenschutz Schirm"></div>
                 <div class="product-content">
-                    <h3 class="p-title">Mega-Saug Trockentuch</h3>
-                    <a href="https://amzn.to/4mggYJe" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                    <h3 class="p-title">Sonnenschutz-Regenschirm</h3> <a href="https://amzn.to/4mggYJe" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
             <div class="product-card" data-synonyms="kalt getränke urlaub kühlen strom camping">
-                <div class="product-img-box"><img src="bild14.jpg" alt="Kühlbox"></div>
+                <div class="product-img-box"><img src="bild14.jpg" alt="Tragbare Kühlbox"></div>
                 <div class="product-content">
-                    <h3 class="p-title">Elektrische 12V Kühlbox</h3>
-                    <a href="https://amzn.to/4cavTzU" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                    <h3 class="p-title">Elektrische Kühlbox 12V</h3> <a href="https://amzn.to/4cavTzU" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
         </div>
@@ -418,16 +261,14 @@
 <div id="about" class="page-section">
     <div class="content-page">
         <h2 style="font-size: 32px; font-weight: 800; margin-top: 0;">Über Auto Upgrade 2026</h2>
-        <p>Willkommen bei <strong>Auto Upgrade 2026</strong>. Wir haben es uns zur Aufgabe gemacht, den unübersichtlichen Markt für Autozubehör zu filtern.</p>
-        <p>Hier findest du keine endlosen Listen, sondern nur handverlesene Premium-Gadgets, die dein Auto wirklich moderner, sicherer und komfortabler machen.</p>
+        <p>Willkommen bei <strong>Auto Upgrade 2026</strong>. Wir filtern den unübersichtlichen Markt und kuratieren handverlesene Premium-Gadgets, die dein Fahrerlebnis moderner, sicherer und komfortabler machen.</p>
     </div>
 </div>
 
 <div id="privacy" class="page-section">
     <div class="content-page">
-        <h2 style="font-size: 32px; font-weight: 800; margin-top: 0;">Datenschutz & Transparenz</h2>
-        <p>Der Schutz deiner Daten ist uns wichtig. Diese Webseite nutzt Affiliate-Links. Wenn du auf einen Produktlink (z.B. zu Amazon) klickst, wird ein Cookie gesetzt, damit der Shop weiß, dass du von uns kommst.</p>
-        <p>Für dich ändert sich der Preis dadurch nicht, aber du unterstützt dieses Projekt. Wir speichern selbst keine persönlichen Daten von unseren Besuchern.</p>
+        <h2 style="font-size: 32px; font-weight: 800; margin-top: 0;">Datenschutz</h2>
+        <p>Diese Webseite nutzt Affiliate-Links. Wenn du auf einen Produktlink klickst und etwas kaufst, erhalten wir eine Provision. Für dich ändert sich der Preis nicht.</p>
     </div>
 </div>
 
@@ -443,8 +284,7 @@
         let pages = document.getElementsByClassName("page-section");
         for (let i = 0; i < pages.length; i++) { pages[i].classList.remove("active"); }
         document.getElementById(pageId).classList.add("active");
-        closeNav();
-        window.scrollTo(0, 0); 
+        closeNav(); window.scrollTo(0, 0); 
     }
 
     function filterProducts() {
