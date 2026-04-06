@@ -3,118 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="p:domain_verify" content="2cc96acbb328c06fdadd05b2df21a20f"/>
-    <title>Auto Upgrade 2026</title>
+    <title>AUTO UPGRADE | Car Essentials 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary: #ef4444;
+            --blue: #3b82f6;
+            --green: #10b981;
+            --dark: #0f172a;
+            --bg: #ffffff;
+            --brand-bg: #000000;
+        }
+
         body {
-            font-family: sans-serif;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--dark);
             margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        .brand-bar {
+            background-color: var(--brand-bg);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-logo-base {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon-svg {
+            height: 20px;
+            fill: white;
+        }
+
+        .brand-name {
+            font-size: 20px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        .header {
+            background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
+                        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 80px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            font-weight: 800;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            transition: all 0.4s ease;
+            border: 1px solid #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        }
+
+        .product-img-box {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px;
-            background-color: #f4f4f4;
+        }
+
+        .product-img-box img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 15px;
+        }
+
+        .product-content {
+            padding: 0 25px 35px;
+            flex-grow: 1;
             text-align: center;
         }
-        h1 {
-            color: #2563eb;
-            margin-bottom: 30px;
+
+        .product-content h3 {
+            font-size: 22px;
+            font-weight: 800;
+            margin-bottom: 15px;
         }
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .card {
-            background: white;
-            border-radius: 15px;
-            width: 300px;
-            padding: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        .card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-        .card h3 {
-            font-size: 18px;
-            margin: 15px 0;
-        }
-        .btn {
-            display: inline-block;
-            background-color: #f59e0b;
-            color: white;
-            padding: 10px 20px;
+
+        .amazon-btn {
+            display: block;
+            background: linear-gradient(135deg, #ff9900, #ffb347);
+            color: black;
             text-decoration: none;
-            border-radius: 10px;
-            font-weight: bold;
+            text-align: center;
+            padding: 18px;
+            border-radius: 20px;
+            font-weight: 800;
+            font-size: 14px;
+            box-shadow: 0 8px 15px rgba(255, 153, 0, 0.2);
         }
+
         footer {
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 1px solid #ccc;
-            color: #666;
+            background: #f8fafc;
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 12px;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
         }
     </style>
 </head>
 <body>
 
-    <h1>Auto Upgrade 2026</h1>
+<div class="brand-bar">
+    <div class="brand-logo-base">
+        <svg class="brand-icon-svg" viewBox="0 0 500 150" xmlns="http://www.w3.org/2000/svg">
+            <path d="M100 120C150 120 180 90 250 90C320 90 350 120 400 120H450C480 120 500 100 500 70V50C500 20 480 0 450 0H50C20 0 0 20 0 50V70C0 100 20 120 50 120H100Z"/>
+        </svg>
+        <h2 class="brand-name">AUTO UPGRADE</h2>
+    </div>
+    <div style="font-size: 11px; opacity: 0.7; letter-spacing: 1px; font-weight: 600;">PREMIUM ESSENTIALS 2026</div>
+</div>
 
-    <div class="container">
-        <div class="card">
-            <img src="bild1.jpg">
-            <h3>4K Dashcam Nachtsicht</h3>
-            <a href="https://amzn.to/3Y26z6A" class="btn">Auf Amazon ansehen</a>
+<div class="header">
+    <h1>Car Essentials 2026</h1>
+</div>
+
+<div class="container">
+
+    <div class="section-title"><h2>🛡️ Sicherheit & Technik</h2></div>
+    <div class="grid">
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild1.jpg" alt="Dashcam"></div>
+            <div class="product-content">
+                <h3>GKU 4K Dashcam</h3>
+                <a href="https://amzn.to/4vsaWcO" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
         </div>
-        <div class="card">
-            <img src="bild2.jpg">
-            <h3>Akku Autostaubsauger</h3>
-            <a href="https://amzn.to/4f1l1Z6" class="btn">Auf Amazon ansehen</a>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild2.jpg" alt="Display"></div>
+            <div class="product-content">
+                <h3>Smart Display</h3>
+                <a href="https://amzn.to/3PQaFju" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
         </div>
-        <div class="card">
-            <img src="bild3.jpg">
-            <h3>Rücksitz Organizer</h3>
-            <a href="https://amzn.to/3Y26B6E" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild4.jpg">
-            <h3>Digitaler Reifendruckmesser</h3>
-            <a href="https://amzn.to/3Y3Bf9g" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild5.jpg">
-            <h3>LED Innenraumbeleuchtung</h3>
-            <a href="https://amzn.to/3Y6Nf8h" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild6.jpg">
-            <h3>Auto Starthilfe Powerbank</h3>
-            <a href="https://amzn.to/4f3M8Xk" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild7.jpg">
-            <h3>Magnet Handyhalterung</h3>
-            <a href="https://amzn.to/3Y1Z7Nf" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild8.jpg">
-            <h3>Keramik Versiegelung Set</h3>
-            <a href="https://amzn.to/3Y5P9rB" class="btn">Auf Amazon ansehen</a>
-        </div>
-        <div class="card">
-            <img src="bild9.jpg">
-            <h3>Premium Lufterfrischer</h3>
-            <a href="https://amzn.to/3Y4L9Zf" class="btn">Auf Amazon ansehen</a>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild3.jpg" alt="OBD2"></div>
+            <div class="product-content">
+                <h3>OBD2 Diagnose</h3>
+                <a href="https://amzn.to/4c2qfBn" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
         </div>
     </div>
 
-    <footer>
-        <p><strong>Kontakt & Impressum</strong></p>
-        <p>Betreiber: Leonit</p>
-        <p>E-Mail: leonit.behrami21@gmail.com</p>
-        <p>Hinweis: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
-    </footer>
+    <div class="section-title"><h2>🧼 Glanz & Profi-Pflege</h2></div>
+    <div class="grid">
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild4.jpg" alt="Sonax"></div>
+            <div class="product-content">
+                <h3>SONAX Ceramic</h3>
+                <a href="https://amzn.to/3QkS532" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild5.jpg" alt="Sauger"></div>
+            <div class="product-content">
+                <h3>Akku-Turbo Sauger</h3>
+                <a href="https://amzn.to/4dZqQF6" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild6.jpg" alt="Gel"></div>
+            <div class="product-content">
+                <h3>Detailing Gel</h3>
+                <a href="https://amzn.to/4trnOhj" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title"><h2>🔋 Power & Notfall-Hilfe</h2></div>
+    <div class="grid">
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild7.jpg" alt="Powerbank"></div>
+            <div class="product-content">
+                <h3>Starthilfe Powerbank</h3>
+                <a href="https://amzn.to/4tyfcWo" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild8.jpg" alt="Kompressor"></div>
+            <div class="product-content">
+                <h3>Akku-Kompressor</h3>
+                <a href="https://amzn.to/4tuothV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+        <div class="product-card">
+            <div class="product-img-box"><img src="bild9.jpg" alt="Notlicht"></div>
+            <div class="product-content">
+                <h3>LED Notfalllicht</h3>
+                <a href="https://amzn.to/41gqtyp" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p><strong>Impressum:</strong> Leonit Behrami | Obermarkstraße | 56330 Kobern-Gondorf | <a href="mailto:leonit.behrami21@gmail.com">leonit.behrami21@gmail.com</a></p>
+    <p>* Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
+</footer>
 
 </body>
 </html>
