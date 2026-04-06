@@ -25,7 +25,6 @@
             line-height: 1.6;
         }
 
-        /* NEU: Grid-Layout für die obere Leiste, damit die Suche perfekt in der Mitte sitzt */
         .brand-bar {
             background-color: var(--brand-bg);
             color: white;
@@ -44,7 +43,6 @@
             gap: 20px;
         }
 
-        /* NEU: Hamburger Menü Button */
         .menu-btn {
             background: none;
             border: none;
@@ -73,7 +71,6 @@
             margin: 0;
         }
 
-        /* NEU: Suchleiste Design */
         .search-wrapper { display: flex; justify-content: center; }
         
         #searchInput {
@@ -103,7 +100,6 @@
             font-weight: 600;
         }
 
-        /* NEU: Seitenleiste (Sidebar) */
         .sidebar {
             height: 100%;
             width: 0;
@@ -131,7 +127,6 @@
         .sidebar a:hover { color: white; background: rgba(255,255,255,0.1); }
         .sidebar .closebtn { position: absolute; top: 15px; right: 25px; font-size: 36px; }
 
-        /* Seiten-Umschaltung */
         .page-section { display: none; }
         .page-section.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
@@ -146,7 +141,6 @@
             border: 1px solid #f1f5f9;
         }
 
-        /* DEIN ORIGINAL DESIGN AB HIER */
         .header {
             background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1500');
@@ -249,10 +243,18 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        /* Mobile Anpassung */
+        /* Message if no products found */
+        #no-results {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        #no-results h2 { font-size: 28px; color: var(--dark); font-weight: 800; }
+        #no-results p { color: #64748b; font-size: 16px; margin-top: 10px; }
+
         @media (max-width: 768px) {
             .brand-bar { grid-template-columns: 1fr; gap: 15px; }
-            .brand-right { display: none; } /* Versteckt den Text rechts auf dem Handy für mehr Platz */
+            .brand-right { display: none; } 
             #searchInput { width: 100%; }
             #searchInput:focus { width: 100%; }
         }
@@ -292,23 +294,29 @@
     </div>
 
     <div class="container">
+        
+        <div id="no-results">
+            <h2>Keine Treffer gefunden 😕</h2>
+            <p>Versuch es mal mit Begriffen wie "Kamera", "Reinigung" oder "Batterie".</p>
+        </div>
+
         <div class="section-title"><h2>🛡️ Sicherheit & Technik</h2></div>
         <div class="grid">
-            <div class="product-card">
+            <div class="product-card" data-synonyms="kamera video aufnahme unfall sicherheit">
                 <div class="product-img-box"><img src="bild1.jpg" alt="Dashcam"></div>
                 <div class="product-content">
                     <h3 class="p-title">GKU 4K Dashcam</h3>
                     <a href="https://amzn.to/4vsaWcO" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="bildschirm carplay android auto radio navi navigation">
                 <div class="product-img-box"><img src="bild2.jpg" alt="Display"></div>
                 <div class="product-content">
                     <h3 class="p-title">Smart Display</h3>
                     <a href="https://amzn.to/3PQaFju" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="fehler auslesen fehlercode auto scanner gerät">
                 <div class="product-img-box"><img src="bild3.jpg" alt="OBD2"></div>
                 <div class="product-content">
                     <h3 class="p-title">OBD2 Diagnose</h3>
@@ -319,21 +327,21 @@
 
         <div class="section-title"><h2>🧼 Glanz & Profi-Pflege</h2></div>
         <div class="grid">
-            <div class="product-card">
+            <div class="product-card" data-synonyms="versiegelung politur lackschutz wachs waschen reinigung">
                 <div class="product-img-box"><img src="bild4.jpg" alt="Sonax"></div>
                 <div class="product-content">
                     <h3 class="p-title">SONAX Ceramic</h3>
                     <a href="https://amzn.to/3QkS532" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="staubsauger putzen reinigen krümel saugen">
                 <div class="product-img-box"><img src="bild5.jpg" alt="Sauger"></div>
                 <div class="product-content">
                     <h3 class="p-title">Akku-Turbo Sauger</h3>
                     <a href="https://amzn.to/4dZqQF6" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="schleim tastatur ritzen staub staubfänger knete">
                 <div class="product-img-box"><img src="bild6.jpg" alt="Gel"></div>
                 <div class="product-content">
                     <h3 class="p-title">Detailing Gel</h3>
@@ -344,21 +352,21 @@
 
         <div class="section-title"><h2>🔋 Power & Notfall-Hilfe</h2></div>
         <div class="grid">
-            <div class="product-card">
+            <div class="product-card" data-synonyms="batterie leer starterkabel überbrücken strom laden">
                 <div class="product-img-box"><img src="bild7.jpg" alt="Powerbank"></div>
                 <div class="product-content">
                     <h3 class="p-title">Starthilfe Powerbank</h3>
                     <a href="https://amzn.to/4tyfcWo" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="reifen aufpumpen luftpumpe druck rad">
                 <div class="product-img-box"><img src="bild8.jpg" alt="Kompressor"></div>
                 <div class="product-content">
                     <h3 class="p-title">Akku-Kompressor</h3>
                     <a href="https://amzn.to/4tuothV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
                 </div>
             </div>
-            <div class="product-card">
+            <div class="product-card" data-synonyms="warnleuchte unfall panne licht lampe blinker">
                 <div class="product-img-box"><img src="bild9.jpg" alt="Notlicht"></div>
                 <div class="product-content">
                     <h3 class="p-title">LED Notfalllicht</h3>
@@ -400,34 +408,68 @@
     }
 
     function showPage(pageId) {
-        // Blendet alle Seiten aus
         let pages = document.getElementsByClassName("page-section");
         for (let i = 0; i < pages.length; i++) {
             pages[i].classList.remove("active");
         }
-        // Blendet die geklickte Seite ein
         document.getElementById(pageId).classList.add("active");
         closeNav();
-        window.scrollTo(0, 0); // Scrollt nach oben
+        window.scrollTo(0, 0); 
     }
 
     function filterProducts() {
-        // Falls jemand sucht, während er auf "Über uns" ist, springt die Seite zu den Produkten zurück
         if(!document.getElementById('home').classList.contains('active')) {
             showPage('home');
         }
 
         let input = document.getElementById('searchInput').value.toLowerCase();
         let cards = document.getElementsByClassName('product-card');
+        let visibleCount = 0;
         
         for (let i = 0; i < cards.length; i++) {
-            // Sucht im Titel der Karte (h3)
             let title = cards[i].querySelector('.p-title').innerText.toLowerCase();
-            if (title.includes(input)) {
+            let synonyms = cards[i].getAttribute('data-synonyms').toLowerCase();
+            
+            // Sucht im Titel UND in den versteckten Synonymen
+            if (title.includes(input) || synonyms.includes(input)) {
                 cards[i].style.display = "";
+                visibleCount++;
             } else {
                 cards[i].style.display = "none";
             }
+        }
+
+        // Steuert das Verstecken von Kategorien, wenn sie leer sind
+        let sectionTitles = document.getElementsByClassName('section-title');
+        let grids = document.getElementsByClassName('grid');
+
+        for (let i = 0; i < grids.length; i++) {
+            let sectionCards = grids[i].getElementsByClassName('product-card');
+            let hasVisibleCards = false;
+
+            for (let j = 0; j < sectionCards.length; j++) {
+                if (sectionCards[j].style.display !== "none") {
+                    hasVisibleCards = true;
+                    break;
+                }
+            }
+
+            // Verstecke Titel und Grid, falls keine Karten sichtbar sind
+            if (hasVisibleCards) {
+                sectionTitles[i].style.display = "";
+                grids[i].style.display = "grid"; 
+            } else {
+                sectionTitles[i].style.display = "none";
+                grids[i].style.display = "none";
+            }
+        }
+
+        // Steuert die "Keine Treffer" Meldung
+        let noResults = document.getElementById('no-results');
+        if (visibleCount === 0) {
+            noResults.style.display = "block";
+        } else {
+            noResults.style.display = "none";
         }
     }
 </script>
