@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Essentials 2026 | Auto-Gadgets & Zubehör</title>
+    <title>Auto Upgrade 2026 | Car Essentials</title>
+    <meta name="p:domain_verify" content="2cc96acbb328c06fdadd05b2df21a20f"/>
     <style>
         :root {
             --primary: #2563eb;
@@ -13,7 +14,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
             margin: 0;
             background-color: var(--light);
             color: var(--dark);
@@ -28,7 +29,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .menu-btn {
@@ -36,32 +37,30 @@
             cursor: pointer;
             background: none;
             border: none;
+            color: var(--dark);
         }
 
         .logo {
             font-weight: bold;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--primary);
+            text-align: center;
+            flex-grow: 1;
         }
 
         .search-container {
             padding: 1.5rem;
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
         }
 
         #searchInput {
             width: 100%;
-            padding: 12px 20px;
-            border: 2px solid #e2e8f0;
+            padding: 12px 25px;
+            border: 1px solid #ddd;
             border-radius: 30px;
             font-size: 1rem;
             outline: none;
-            transition: border-color 0.3s;
-        }
-
-        #searchInput:focus {
-            border-color: var(--primary);
         }
 
         .sidebar {
@@ -80,23 +79,14 @@
         .sidebar a {
             padding: 15px 32px;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #cbd5e1;
             display: block;
             transition: 0.3s;
         }
 
-        .sidebar a:hover {
-            color: white;
-            background: #334155;
-        }
-
-        .sidebar .closebtn {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            font-size: 36px;
-        }
+        .sidebar a:hover { color: white; background: #334155; }
+        .sidebar .closebtn { position: absolute; top: 10px; right: 25px; font-size: 36px; }
 
         .product-grid {
             display: grid;
@@ -109,37 +99,25 @@
 
         .product-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
             transition: transform 0.3s;
             display: flex;
             flex-direction: column;
+            text-align: center;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+        .product-card:hover { transform: translateY(-5px); }
 
         .product-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
-        .product-info {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .product-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            min-height: 2.4rem;
-        }
+        .product-info { padding: 1.5rem; flex-grow: 1; }
+        .product-title { font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem; }
 
         .amazon-btn {
             display: block;
@@ -147,27 +125,13 @@
             color: white;
             text-align: center;
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: auto;
-            transition: background 0.3s;
         }
 
-        .amazon-btn:hover {
-            background: #d97706;
-        }
-
-        .section-content {
-            padding: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
-            display: none;
-        }
-
-        .active {
-            display: block;
-        }
+        .section-content { padding: 2rem; max-width: 1000px; margin: 0 auto; display: none; }
+        .active { display: block; }
     </style>
 </head>
 <body>
@@ -183,7 +147,7 @@
 <header>
     <button class="menu-btn" onclick="openNav()">&#9776;</button>
     <div class="logo">Auto Upgrade 2026</div>
-    <div style="width: 24px;"></div> 
+    <div style="width: 24px;"></div>
 </header>
 
 <div id="home" class="section-content active">
@@ -201,7 +165,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild2.jpg" alt="Handstaubsauger">
+            <img src="bild2.jpg" alt="Staubsauger">
             <div class="product-info">
                 <div class="product-title">Akku Autostaubsauger</div>
                 <a href="https://amzn.to/4f1l1Z6" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -217,7 +181,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild4.jpg" alt="Reifendruckmesser">
+            <img src="bild4.jpg" alt="Reifendruck">
             <div class="product-info">
                 <div class="product-title">Digitaler Reifendruckmesser</div>
                 <a href="https://amzn.to/3Y3Bf9g" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -225,7 +189,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild5.jpg" alt="LED Innenraum">
+            <img src="bild5.jpg" alt="LED">
             <div class="product-info">
                 <div class="product-title">LED Innenraumbeleuchtung</div>
                 <a href="https://amzn.to/3Y6Nf8h" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -233,7 +197,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild6.jpg" alt="Starthilfe Powerbank">
+            <img src="bild6.jpg" alt="Starthilfe">
             <div class="product-info">
                 <div class="product-title">Auto Starthilfe Powerbank</div>
                 <a href="https://amzn.to/4f3M8Xk" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -241,7 +205,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild7.jpg" alt="Handyhalterung">
+            <img src="bild7.jpg" alt="Halterung">
             <div class="product-info">
                 <div class="product-title">Magnet Handyhalterung</div>
                 <a href="https://amzn.to/3Y1Z7Nf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -249,7 +213,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild8.jpg" alt="Lackschutz">
+            <img src="bild8.jpg" alt="Keramik">
             <div class="product-info">
                 <div class="product-title">Keramik Versiegelung Set</div>
                 <a href="https://amzn.to/3Y5P9rB" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -257,7 +221,7 @@
         </div>
 
         <div class="product-card">
-            <img src="bild9.jpg" alt="Dufterfrischer">
+            <img src="bild9.jpg" alt="Duft">
             <div class="product-info">
                 <div class="product-title">Premium Lufterfrischer</div>
                 <a href="https://amzn.to/3Y4L9Zf" target="_blank" class="amazon-btn">Auf Amazon ansehen</a>
@@ -268,25 +232,24 @@
 
 <div id="about" class="section-content">
     <h1>Über uns</h1>
-    <p>Willkommen bei Auto Upgrade 2026. Wir testen und kuratieren die besten Gadgets für dein Fahrzeug. Unser Ziel ist es, jedes Auto sicherer, sauberer und smarter zu machen.</p>
+    <p>Wir bei Auto Upgrade 2026 suchen für dich die besten Gadgets aus, damit dein Fahrerlebnis moderner und sicherer wird.</p>
 </div>
 
 <div id="services" class="section-content">
     <h1>Dienstleistungen</h1>
-    <p>Wir bieten kostenlose Beratung zu Autozubehör und erstellen individuelle Listen für verschiedene Fahrzeugtypen. Melde dich bei Interesse!</p>
+    <p>Kuratierte Listen für Auto-Zubehör und Beratung zu den neuesten Trends 2026.</p>
 </div>
 
 <div id="contact" class="section-content">
     <h1>Kontakt & Impressum</h1>
     <p>Betreiber: Leonit<br>
-    E-Mail: [Deine E-Mail hier einfügen]<br><br>
+    E-Mail: leonit@autoupgrade.com<br><br>
     Hinweis: Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.</p>
 </div>
 
 <script>
 function openNav() { document.getElementById("mySidebar").style.width = "250px"; }
 function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
-
 function showPage(pageId) {
     const pages = document.getElementsByClassName('section-content');
     for (let page of pages) { page.classList.remove('active'); }
@@ -294,7 +257,6 @@ function showPage(pageId) {
     closeNav();
     window.scrollTo(0,0);
 }
-
 function filterProducts() {
     let input = document.getElementById('searchInput').value.toLowerCase();
     let cards = document.getElementsByClassName('product-card');
@@ -304,6 +266,5 @@ function filterProducts() {
     }
 }
 </script>
-
 </body>
 </html>
