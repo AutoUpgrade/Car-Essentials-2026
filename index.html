@@ -21,7 +21,6 @@
             --footer-bg: #f8fafc;
         }
 
-        /* DARK MODE FARBEN */
         [data-theme="dark"] {
             --bg: #0f172a;
             --card-bg: #1e293b;
@@ -84,7 +83,6 @@
             font-weight: 600;
         }
 
-        /* DARK MODE BUTTON */
         .theme-toggle {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
@@ -93,9 +91,7 @@
             border-radius: 12px;
             cursor: pointer;
             font-size: 14px;
-            transition: 0.3s;
         }
-        .theme-toggle:hover { background: rgba(255, 255, 255, 0.2); }
 
         .sidebar {
             height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; left: 0;
@@ -110,11 +106,6 @@
         .page-section.active { display: block; animation: fadeIn 0.5s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        .content-page {
-            max-width: 800px; margin: 60px auto; padding: 40px;
-            background: var(--card-bg); border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.06); border: 1px solid var(--border);
-        }
-
         .header {
             background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.8)), 
                         url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1500');
@@ -125,16 +116,7 @@
 
         .container { max-width: 1100px; margin: -60px auto 60px auto; padding: 0 20px; }
         .section-title { text-align: center; margin: 80px 0 40px; }
-        
-        /* EMOJI STYLING FÜR KONTRAST */
-        .section-title h2 { 
-            font-size: 32px; 
-            font-weight: 800; 
-            text-shadow: 0 0 10px rgba(255,255,255,0.1);
-        }
-        [data-theme="dark"] .section-title h2 {
-            text-shadow: 0 0 15px rgba(255,255,255,0.3);
-        }
+        .section-title h2 { font-size: 32px; font-weight: 800; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .product-card {
@@ -143,10 +125,10 @@
         }
         .product-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.15); }
         
-        .product-img-box { height: 220px; display: flex; align-items: center; justify-content: center; padding: 20px; background: white; border-radius: 0 0 15px 15px; }
-        [data-theme="dark"] .product-img-box { background: #f8fafc; } /* Bleibt hell für Produktbilder */
+        .product-img-box { height: 220px; display: flex; align-items: center; justify-content: center; padding: 20px; background: white; }
+        [data-theme="dark"] .product-img-box { background: #f8fafc; }
         
-        .product-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; border-radius: 10px; }
+        .product-img-box img { max-height: 100%; max-width: 100%; object-fit: contain; }
         .product-content { padding: 20px 25px 35px; flex-grow: 1; text-align: center; }
         .product-content h3 { font-size: 22px; font-weight: 800; margin-bottom: 15px; }
 
@@ -161,7 +143,7 @@
             font-weight: 800; font-size: 14px; box-shadow: 0 8px 15px rgba(255, 153, 0, 0.2);
         }
 
-        footer { background: var(--footer-bg); text-align: center; padding: 60px 20px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); transition: background 0.3s; }
+        footer { background: var(--footer-bg); text-align: center; padding: 60px 20px; font-size: 13px; color: var(--text-muted); border-top: 1px solid var(--border); }
         #no-results { display: none; text-align: center; padding: 80px 20px; }
 
         @media (max-width: 768px) {
@@ -193,8 +175,8 @@
     </div>
     <div class="search-wrapper"><input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="Gadgets suchen..."></div>
     <div class="brand-right">
-        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Mode</button>
-        <span class="brand-text">PREMIUM ESSENTIALS 2026</span>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+        <span>PREMIUM ESSENTIALS 2026</span>
     </div>
 </div>
 
@@ -268,6 +250,56 @@
                 </div>
             </div>
         </div>
+
+        <div class="section-title"><h2>🧼 Glanz & Profi-Pflege</h2></div>
+        <div class="grid">
+            <div class="product-card" data-synonyms="versiegelung politur lackschutz wachs waschen reinigung">
+                <div class="product-img-box"><img src="bild4.jpg" alt="Sonax"></div>
+                <div class="product-content">
+                    <h3 class="p-title">SONAX Ceramic</h3>
+                    <a href="https://amzn.to/3QkS532" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card" data-synonyms="staubsauger putzen reinigen krümel saugen">
+                <div class="product-img-box"><img src="bild5.jpg" alt="Sauger"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Akku-Turbo Sauger</h3>
+                    <a href="https://amzn.to/4dZqQF6" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card" data-synonyms="schleim tastatur ritzen staub staubfänger knete">
+                <div class="product-img-box"><img src="bild6.jpg" alt="Gel"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Detailing Gel</h3>
+                    <a href="https://amzn.to/4trnOhj" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title"><h2>🔋 Power & Notfall-Hilfe</h2></div>
+        <div class="grid">
+            <div class="product-card" data-synonyms="batterie leer starterkabel überbrücken strom laden">
+                <div class="product-img-box"><img src="bild7.jpg" alt="Powerbank"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Starthilfe Powerbank</h3>
+                    <a href="https://amzn.to/4tyfcWo" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card" data-synonyms="reifen aufpumpen luftpumpe druck rad">
+                <div class="product-img-box"><img src="bild8.jpg" alt="Kompressor"></div>
+                <div class="product-content">
+                    <h3 class="p-title">Akku-Kompressor</h3>
+                    <a href="https://amzn.to/4tuothV" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+            <div class="product-card" data-synonyms="warnleuchte unfall panne licht lampe blinker">
+                <div class="product-img-box"><img src="bild9.jpg" alt="Notlicht"></div>
+                <div class="product-content">
+                    <h3 class="p-title">LED Notfalllicht</h3>
+                    <a href="https://amzn.to/41gqtyp" target="_blank" class="amazon-btn">Auf Amazon prüfen →</a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -291,7 +323,6 @@
 </footer>
 
 <script>
-    // THEME TOGGLE LOGIK
     function toggleTheme() {
         const body = document.body;
         const btn = document.getElementById('themeToggle');
@@ -306,7 +337,6 @@
         }
     }
 
-    // Beim Laden Theme prüfen
     window.onload = () => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
@@ -328,9 +358,7 @@
     function goToContact() {
         showPage('home');
         closeNav();
-        setTimeout(() => {
-            document.getElementById('footer').scrollIntoView();
-        }, 100);
+        setTimeout(() => { document.getElementById('footer').scrollIntoView(); }, 100);
     }
 
     function filterProducts() {
@@ -341,8 +369,8 @@
         
         for (let i = 0; i < cards.length; i++) {
             let title = cards[i].querySelector('.p-title').innerText.toLowerCase();
-            let synonyms = cards[i].getAttribute('data-synonyms') ? cards[i].getAttribute('data-synonyms').toLowerCase() : "";
-            if (title.includes(input) || synonyms.includes(input)) {
+            let synonyms = cards[i].getAttribute('data-synonyms') || "";
+            if (title.includes(input) || synonyms.toLowerCase().includes(input)) {
                 cards[i].style.display = ""; visibleCount++;
             } else { cards[i].style.display = "none"; }
         }
